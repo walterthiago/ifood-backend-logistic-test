@@ -8,11 +8,11 @@ Json example:
 ```json
 { "orders": [  
      { 
-        "id": 1 
-        "restaurant":{ "lat" : "0.0", "lng" : "0.0"},
-        "client":{ "lat" : "1.0", "lng" : "1.0"},
-        "pickup":"13:37",
-        "delivery":"13:54"
+        "id": 1,
+        "restaurant": { "lat" : "0.0", "lng" : "0.0"},
+        "client": { "lat" : "1.0", "lng" : "1.0"},
+        "pickup": "13:37",
+        "delivery": "13:54"
      },
      ...
    ]
