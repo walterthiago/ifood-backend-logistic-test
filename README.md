@@ -1,26 +1,25 @@
 # iFood Backend Test - Logistic - Vehicle Routing Problem
 
 You have been hired to create a completely new micro-service to route orders minimizing overall distance. This problem is well known as Vehicle Routing Problem, please find a reference for it at (https://en.wikipedia.org/wiki/Vehicle_routing_problem). 
-Your micro-service must provide us an endpoint which receives orders identified by geo-location of the restaurant and the client (lat,long).
-The order also has the pickup time (the moment when the dish is ready) and a delivery time (due time to deliver the dish).
 
-Json example:
+Your micro-service must provide us the following endpoints with these minimal mandatory attributes:
+- Restaurants: create, update and get by id
+`{"id": 1, "lat" : "0.0", "lon" : "0.0"}`
+- Clients: create, update and get by id
+`{"id": 1, "lat" : "0.0", "lon" : "0.0"}`
+- Orders: Create, get by id and query by restaurant with optional filtering by delivery time. The pickup time is the moment when the dish is ready and the delivery time is the due time to deliver the dish.
 ```json
-{ "orders": [  
-     { 
-        "id": 1,
-        "restaurant": { "lat" : "0.0", "lng" : "0.0"},
-        "client": { "lat" : "1.0", "lng" : "1.0"},
-        "pickup": "13:37",
-        "delivery": "13:54"
-     },
-     ...
-   ]
+{
+    "id": 1,
+    "restaurantId": 1,
+    "clientId": 1,
+    "pickup": "2018-06-05T13:37:00Z",
+    "delivery": "2018-06-05T13:54:00Z"
 }
 ```
 _* This example ilustrates the problem. Please, use the right types for the attributes._
 
-This service must return the solution proposed following the example below.
+Your micro-service also must provide an endpoint which returns the solution proposed following the example below.
 ```json
 {
 	"routes": [
@@ -33,19 +32,19 @@ This service must return the solution proposed following the example below.
 	]
 }
 ```
-_* Same consideration.
-The ids are the orders that are picked and delivered in one route by a driver._
-
+_* Same consideration. The ids are the orders that are picked and delivered in one route by a driver._
 
 ## You must consider that:
 
 - You have limitless drivers.
 	-> but it is better to minimize the number of drivers.
-- A worker can do at most 3 deliveries at the same time (i.e. in the same route)
-- You CAN'T deliver an order after the delivery time
+- A worker can do at most 3 deliveries of the same restaurant at the same time (i.e. in the same route)
+- You should try to avoid delivering an order after the delivery time
 - You CAN'T pick up an order before the pickup time
 - The driver is on the restaurant at the pickup time
 - Consider that the driver goes 0.1 units in line each 5 minute.
+- Each order must be optimized only once
+- You should elaborate the algorithm to solve the Vehicle Routing Problem (do not use libraries for that)
 
 Hints: your system is growing and the constraints can change, furthermore, new constraints can be added. Prepare your system to be easy to change/configure and easy to add new constraints.
 
