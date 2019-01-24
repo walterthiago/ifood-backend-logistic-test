@@ -1,10 +1,10 @@
-package br.com.ifood.ibtlvrptest.ibtlvrptest.controller;
+package br.com.ifood.ibtlvrptest.ibtlvrptest.controllers;
 
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/restaurant")
-public class RestaurantController {
+@RequestMapping(path = "/order")
+public class OrderController {
 
     @PostMapping
     public String create() {
@@ -16,14 +16,13 @@ public class RestaurantController {
         return "";
     }
 
-    @GetMapping(path = "/{restaurantId}")
+    @GetMapping(path = "/{orderId}")
     public String getById() {
         return "";
     }
 
-    @PutMapping(path = "/{restaurantId}")
+    @PutMapping(path = "/{orderId}")
     public String update() {
         return "";
     }
-
 }
