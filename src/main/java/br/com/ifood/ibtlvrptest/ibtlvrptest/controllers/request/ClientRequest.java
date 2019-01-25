@@ -10,4 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ClientRequest {
+    private Long id;
+    private Double lat;
+    private Double lon;
 }

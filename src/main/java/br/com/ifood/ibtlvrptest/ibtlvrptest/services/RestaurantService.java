@@ -12,5 +12,5 @@ public interface RestaurantService {
 
     Restaurant retrieveById(Long id);
 
-    Restaurant update(Restaurant restaurant);
+    Restaurant update(Long id, Restaurant restaurant);
 }

@@ -14,6 +14,8 @@ public interface OrderMapper {
 
     Order requestToOrder(OrderRequest order);
 
+    Order entityToOrder(OrderEntity order);
+
     OrderEntity orderToEntity(Order order);
 
     OrderResponse orderToResponse(Order order);

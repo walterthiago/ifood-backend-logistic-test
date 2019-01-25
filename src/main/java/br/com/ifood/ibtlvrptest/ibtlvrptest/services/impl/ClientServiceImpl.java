@@ -24,7 +24,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client update(Client client) {
+    public Client update(Long id, Client client) {
         return null;
     }
 }

@@ -10,4 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Client {
+
+    private Long id;
+    private Double lat;
+    private Double lon;
+
 }

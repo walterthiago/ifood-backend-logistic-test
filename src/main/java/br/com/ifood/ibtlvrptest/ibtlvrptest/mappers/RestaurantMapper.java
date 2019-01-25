@@ -14,6 +14,8 @@ public interface RestaurantMapper {
 
     Restaurant requestToRestaurant(RestaurantRequest restaurant);
 
+    Restaurant entityToRestaurant(RestaurantEntity restaurant);
+
     RestaurantEntity restaurantToEntity(Restaurant restaurant);
 
     RestaurantResponse restaurantToResponse(Restaurant restaurant);

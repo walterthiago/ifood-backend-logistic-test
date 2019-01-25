@@ -12,6 +12,6 @@ public interface OrderService {
 
     Order retrieveById(Long id);
 
-    Order update(Order order);
+    Order update(Long id, Order order);
 
 }

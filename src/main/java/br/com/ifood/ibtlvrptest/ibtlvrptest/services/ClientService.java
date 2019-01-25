@@ -12,6 +12,6 @@ public interface ClientService {
 
     Client retrieveById(Long id);
 
-    Client update(Client client);
+    Client update(Long id, Client client);
 
 }

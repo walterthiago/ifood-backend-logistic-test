@@ -14,6 +14,8 @@ public interface ClientMapper {
 
     Client requestToClient(ClientRequest client);
 
+    Client entityToClient(ClientEntity client);
+
     ClientEntity clientToEntity(Client client);
 
     ClientResponse clientToResponse(Client client);
