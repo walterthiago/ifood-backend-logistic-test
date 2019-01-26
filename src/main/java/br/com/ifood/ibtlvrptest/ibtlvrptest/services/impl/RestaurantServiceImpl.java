@@ -45,7 +45,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     public Restaurant update(Long id, Restaurant restaurant) {
         val found = this.retrieveById(id);
 
-        //TODO: Replace found object attributes by restaurant received above
+        found.setLat(restaurant.getLat());
+        found.setLon(restaurant.getLon());
 
         val updated = repository.save(toEntity(found));
         return toRestaurant(updated);
