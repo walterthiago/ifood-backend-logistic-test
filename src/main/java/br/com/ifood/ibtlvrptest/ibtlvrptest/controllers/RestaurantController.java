@@ -21,7 +21,7 @@ public class RestaurantController {
     private RestaurantService restaurantService;
 
     @PostMapping
-    public ResponseEntity<RestaurantResponse> create(RestaurantRequest request) {
+    public ResponseEntity<RestaurantResponse> create(@RequestBody RestaurantRequest request) {
         val created = restaurantService.create(toRestaurant(request));
         return ResponseEntity.ok(toResponse(created));
     }
@@ -37,13 +37,13 @@ public class RestaurantController {
     }
 
     @GetMapping(path = "/{restaurantId}")
-    public ResponseEntity<RestaurantResponse> getById(Long id) {
+    public ResponseEntity<RestaurantResponse> getById(@PathVariable("restaurantId") Long id) {
         val found = restaurantService.retrieveById(id);
         return ResponseEntity.ok(toResponse(found));
     }
 
     @PutMapping(path = "/{restaurantId}")
-    public ResponseEntity<RestaurantResponse> update(Long id, RestaurantRequest request) {
+    public ResponseEntity<RestaurantResponse> update(@PathVariable("restaurantId") Long id, @RequestBody RestaurantRequest request) {
         val updated = restaurantService.update(id, toRestaurant(request));
         return ResponseEntity.ok(toResponse(updated));
     }

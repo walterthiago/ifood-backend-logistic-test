@@ -21,7 +21,7 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<OrderResponse> create(OrderRequest request) {
+    public ResponseEntity<OrderResponse> create(@RequestBody OrderRequest request) {
         val created = orderService.create(toOrder(request));
         return ResponseEntity.ok(toResponse(created));
     }
@@ -37,13 +37,13 @@ public class OrderController {
     }
 
     @GetMapping(path = "/{orderId}")
-    public ResponseEntity<OrderResponse> getById(Long id) {
+    public ResponseEntity<OrderResponse> getById(@PathVariable("orderId") Long id) {
         val found = orderService.retrieveById(id);
         return ResponseEntity.ok(toResponse(found));
     }
 
     @PutMapping(path = "/{orderId}")
-    public ResponseEntity<OrderResponse> update(Long id, OrderRequest request) {
+    public ResponseEntity<OrderResponse> update(@PathVariable("orderId") Long id, @RequestBody OrderRequest request) {
         val updated = orderService.update(id, toOrder(request));
         return ResponseEntity.ok(toResponse(updated));
     }

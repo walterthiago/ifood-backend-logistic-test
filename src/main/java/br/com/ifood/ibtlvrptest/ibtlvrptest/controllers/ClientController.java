@@ -22,7 +22,7 @@ public class ClientController {
     private ClientService clientService;
 
     @PostMapping
-    public ResponseEntity<ClientResponse> create(ClientRequest request) {
+    public ResponseEntity<ClientResponse> create(@RequestBody ClientRequest request) {
         val created = clientService.create(toClient(request));
         return ResponseEntity.ok(toResponse(created));
     }
@@ -38,13 +38,13 @@ public class ClientController {
     }
 
     @GetMapping(path = "/{clientId}")
-    public ResponseEntity<ClientResponse> getById(Long id) {
+    public ResponseEntity<ClientResponse> getById(@PathVariable("clientId") Long id) {
         val found = clientService.retrieveById(id);
         return ResponseEntity.ok(toResponse(found));
     }
 
     @PutMapping(path = "/{clientId}")
-    public ResponseEntity<ClientResponse> update(Long id, ClientRequest request) {
+    public ResponseEntity<ClientResponse> update(@PathVariable("clientId") Long id, @RequestBody ClientRequest request) {
         val updated = clientService.update(id, toClient(request));
         return ResponseEntity.ok(toResponse(updated));
     }
