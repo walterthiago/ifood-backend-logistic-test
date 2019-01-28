@@ -60,7 +60,7 @@ Also, make it easy to deploy/run your service(s) locally (consider using some co
 We expect that you solve this test in about 8 hours. Once done, share your code with us.
 
 
---- TODO: By Walter
-TODO: Need to put an exception handler, need to put controller data validation, need to put the application to run at docker and need to write tests using h2 or some other mock like mockito for example.
-TODO: Next step is allow navigation using filters to query orders and implement route endpoint with algorithm.
-TODO: To finish, need to use hystryx as a circuit breaker to improve some non-functional requirements to check data base callbacks and provide fallbacks
+# TODO: By Walter
+# TODO: Need to put controller data validation, need to put the application to run at docker and need to write tests using h2 or some other mock like mockito for example.
+# TODO: Next step is allow navigation using filters to query orders and implement route endpoint with algorithm.
+# TODO: To finish, need to use hystryx as a circuit breaker to improve some non-functional requirements to check data base callbacks and provide fallbacks
