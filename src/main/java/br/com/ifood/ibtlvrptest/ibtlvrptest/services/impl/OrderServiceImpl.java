@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order retrieveById(Long id) {
-        val found = repository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        val found = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Order " + id + " not found"));
         return toOrder(found);
     }
 

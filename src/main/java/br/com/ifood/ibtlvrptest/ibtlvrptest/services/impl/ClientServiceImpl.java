@@ -38,7 +38,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client retrieveById(Long id) {
-        val found = repository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        val found = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Client " + id + " not found"));
         return toClient(found);
     }
 

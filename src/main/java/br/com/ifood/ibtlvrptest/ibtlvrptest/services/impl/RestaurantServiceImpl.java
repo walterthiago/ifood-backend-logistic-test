@@ -37,7 +37,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant retrieveById(Long id) {
-        val found = repository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        val found = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Restaurant " + id + " not found"));
         return toRestaurant(found);
     }
 
