@@ -49,7 +49,7 @@ _* Same consideration. The ids are the orders that are picked and delivered in o
 
 Hints: your system is growing and the constraints can change, furthermore, new constraints can be added. Prepare your system to be easy to change/configure and easy to add new constraints.
 
-## Non-functional requeriments
+## Non-functional requirements
 
 Now consider that your micro-services are a success inside IFood, it must be prepared to be fault tolerant, responsive and resilient.
 

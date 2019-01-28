@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,7 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<OrderResponse> create(@RequestBody OrderRequest request) {
+    public ResponseEntity<OrderResponse> create(@Valid @RequestBody OrderRequest request) {
         val created = orderService.create(toOrder(request));
         return ResponseEntity.ok(toResponse(created));
     }
@@ -43,7 +44,7 @@ public class OrderController {
     }
 
     @PutMapping(path = "/{orderId}")
-    public ResponseEntity<OrderResponse> update(@PathVariable("orderId") Long id, @RequestBody OrderRequest request) {
+    public ResponseEntity<OrderResponse> update(@PathVariable("orderId") Long id, @Valid @RequestBody OrderRequest request) {
         val updated = orderService.update(id, toOrder(request));
         return ResponseEntity.ok(toResponse(updated));
     }

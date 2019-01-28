@@ -5,12 +5,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class RestaurantRequest {
+
     private Long id;
+
+    @NotNull(message = "'lat' field is required")
     private Double lat;
+
+    @NotNull(message = "'lon' field is required")
     private Double lon;
+
 }

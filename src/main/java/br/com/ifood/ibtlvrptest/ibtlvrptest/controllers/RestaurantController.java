@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,7 @@ public class RestaurantController {
     private RestaurantService restaurantService;
 
     @PostMapping
-    public ResponseEntity<RestaurantResponse> create(@RequestBody RestaurantRequest request) {
+    public ResponseEntity<RestaurantResponse> create(@Valid @RequestBody RestaurantRequest request) {
         val created = restaurantService.create(toRestaurant(request));
         return ResponseEntity.ok(toResponse(created));
     }
@@ -43,7 +44,7 @@ public class RestaurantController {
     }
 
     @PutMapping(path = "/{restaurantId}")
-    public ResponseEntity<RestaurantResponse> update(@PathVariable("restaurantId") Long id, @RequestBody RestaurantRequest request) {
+    public ResponseEntity<RestaurantResponse> update(@PathVariable("restaurantId") Long id, @Valid @RequestBody RestaurantRequest request) {
         val updated = restaurantService.update(id, toRestaurant(request));
         return ResponseEntity.ok(toResponse(updated));
     }

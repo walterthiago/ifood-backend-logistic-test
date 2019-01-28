@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -22,7 +23,7 @@ public class ClientController {
     private ClientService clientService;
 
     @PostMapping
-    public ResponseEntity<ClientResponse> create(@RequestBody ClientRequest request) {
+    public ResponseEntity<ClientResponse> create(@Valid @RequestBody ClientRequest request) {
         val created = clientService.create(toClient(request));
         return ResponseEntity.ok(toResponse(created));
     }
@@ -44,7 +45,7 @@ public class ClientController {
     }
 
     @PutMapping(path = "/{clientId}")
-    public ResponseEntity<ClientResponse> update(@PathVariable("clientId") Long id, @RequestBody ClientRequest request) {
+    public ResponseEntity<ClientResponse> update(@PathVariable("clientId") Long id, @Valid @RequestBody ClientRequest request) {
         val updated = clientService.update(id, toClient(request));
         return ResponseEntity.ok(toResponse(updated));
     }

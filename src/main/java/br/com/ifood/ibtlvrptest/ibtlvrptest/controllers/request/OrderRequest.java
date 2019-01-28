@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
@@ -14,9 +15,19 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class OrderRequest {
+
     private Long id;
+
+    @NotNull
     private RestaurantEntity restaurant;
+
+    @NotNull
     private ClientEntity client;
+
+    @NotNull
     private LocalDateTime pickup;
+
+    @NotNull
     private LocalDateTime delivery;
+
 }
